@@ -28,12 +28,12 @@ def read_cook_book():
             ingridient_list = list()
 
             while ingridient_count != 0:
-                ingridient_set = f.readline().lower().split(' | ')
-                ingridient_set[2] = ingridient_set[2].rstrip()  # Тут ничего элегантней не придумал :)
+                name, quantity, measure = f.readline().lower().split(' | ')
+                measure = measure.rstrip()
 
-                ingridient_dict = {'ingridient_name': ingridient_set[0],
-                                   'quantity': int(ingridient_set[1]),
-                                   'measure': ingridient_set[2]}
+                ingridient_dict = {'ingridient_name': name,
+                                   'quantity': int(quantity),
+                                   'measure': measure}
 
                 ingridient_list.append(ingridient_dict)
                 ingridient_count -= 1
@@ -80,7 +80,7 @@ def get_shop_list_by_dishes(dishes, person_count):
 
 def print_shop_list(shop_list):
     with open("shop_list.txt", 'a') as f:
-        
+
         for shop_list_item in shop_list.values():
             print('{} {} {}'.format(shop_list_item[
                                         'ingridient_name'], shop_list_item['quantity'], shop_list_item['measure']))
