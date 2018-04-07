@@ -79,10 +79,12 @@ def get_shop_list_by_dishes(dishes, person_count):
 
 
 def print_shop_list(shop_list):
-    for shop_list_item in shop_list.values():
-        print(
-            '{} {} {}'.format(shop_list_item['ingridient_name'], shop_list_item['quantity'], shop_list_item['measure']))
-        with open("shop_list.txt", 'a') as f:
+    with open("shop_list.txt", 'a') as f:
+        
+        for shop_list_item in shop_list.values():
+            print('{} {} {}'.format(shop_list_item[
+                                        'ingridient_name'], shop_list_item['quantity'], shop_list_item['measure']))
+
             print('{} {} {}'.format
                   (shop_list_item['ingridient_name'], shop_list_item['quantity'], shop_list_item['measure']), file=f)
 
